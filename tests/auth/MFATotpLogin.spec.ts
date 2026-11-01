@@ -9,7 +9,7 @@ async function getTotp(): Promise<string> {
     await new Promise(r => setTimeout(r, (remaining + 1) * 1000));
   }
   //below TOTP secret will be used from .env file
-  //Step2: in playwright.config.ts this snip is used to import .env secret key to generate 6 digit totp
+  //Step2: in playwright.config.ts this wsnip is used to import .env secret key to generate 6 digit totp
   // import dotenv from 'dotenv';  dotenv.config();
  // process.env.TOTP_SECRET reads the secret key from your .env file (loaded by dotenv).
  //  It’s the setup key GitHub gave you, a Base32 string like H3AHP7....
