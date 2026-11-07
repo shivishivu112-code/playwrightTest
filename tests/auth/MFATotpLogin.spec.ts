@@ -23,7 +23,11 @@ async function getTotp(): Promise<string> {
   return authenticator.generate(process.env.TOTP_SECRET!);
 }
 
-test('GitHub login with TOTP', async ({ page }) => {
+test.only('GitHub login with TOTP', async ({ page }) => {
+
+  if(!process.env.BASE_URL || !process.env.APP_USERNAME || !process.env.PASSWORD || !process.env.TOTP_SECRET) {
+    throw new Error(`Missing ${process.env.BASE_URL} required environment variables. Please set BASE_URL, APP_USERNAME, PASSWORD, and TOTP_SECRET in your .env file.`);
+  }
 //step1 is:  .env file created and below url. logins will be used from .env file
   await page.goto(`${process.env.BASE_URL}/login`);
   await page.fill('#login_field', process.env.APP_USERNAME!);

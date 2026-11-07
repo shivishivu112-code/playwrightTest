@@ -4,6 +4,7 @@ on:
     branches: [ main, ShivanandG ]
   pull_request:
     branches: [ main, ShivanandG ]
+    
 jobs:
   test:
     timeout-minutes: 60
