@@ -36,6 +36,7 @@ test.only('GitHub login with TOTP', async ({ page }) => {
 
   await page.fill('#app_totp', await getTotp());
 
+  
   await expect(page).not.toHaveURL(/login|two-factor/);
   await expect(page.locator('//span[text()="Dashboard"]')).toBeVisible();
 
